@@ -1,0 +1,6 @@
+# for security reasons
+.env
+
+# Ignore Python byte-compiled files in any __pycache__ directory under modules
+modules/**/__pycache__/*.pyc
+
