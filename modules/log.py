@@ -7,7 +7,8 @@ def setting_up_logging() -> logging.Logger:
 
     LOG_LEVEL can be NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL
     
-    :return: None
+    Returns:
+        Object: logger
     '''
     # Get log level from environment variable, defaulting to DEBUG
     log_level = os.environ.get('LOG_LEVEL', 'DEBUG').upper()

@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from modules.base.log import setting_up_logging
+from modules.log import setting_up_logging
 
 # Set up logging
 logger = setting_up_logging()
@@ -10,7 +10,8 @@ def check_variables(env_vars) -> None:
     '''
     Checks env_vars variable which should contains all necessary environmental variable names.
     
-    :return: None
+    Returns:
+        None
     '''
     logger.debug("Checking vars starting...")
     for var in env_vars:
