@@ -11,7 +11,7 @@ def check_variables(env_vars) -> None:
     Checks env_vars variable which should contains all necessary environmental variable names.
     
     Returns:
-        None
+        None.
     '''
     logger.debug("Checking vars starting...")
     for var in env_vars:
