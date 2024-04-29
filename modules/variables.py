@@ -1,37 +1,19 @@
-import sys, os
-import logging
+import os
 from dotenv import load_dotenv
+from modules.log import setting_up_logging
 
-#
-# Logging setup
-#
-
-# Get log level from environment variable, defaulting to DEBUG
-log_level = os.environ.get('LOG_LEVEL', 'DEBUG').upper()
-
-# Configure logging
-logging.basicConfig(level=log_level,
-                    format='%(asctime)s - %(levelname)s - %(message)s',
-                    stream=sys.stdout) # or specific file
-
-# Create a logger
-logger = logging.getLogger()
-logger.debug(f'Logging started.')
-
-#
-# Check variables
-#
-
-# List of environment variables you want to check
-env_vars = ['HOME', 'PATH', 'SHELL', 'NONEXISTENT']
+# Set up logging
+logger = setting_up_logging()
 
 # Check each environment variable
-def check_variables() -> None:
+def check_variables(env_vars) -> None:
     '''
     Checks env_vars variable which should contains all necessary environmental variable names.
     
-    :return: None
+    Returns:
+        None.
     '''
+    logger.debug("Checking vars starting...")
     for var in env_vars:
         value = os.getenv(var)
         if value:
@@ -53,9 +35,4 @@ def check_variables() -> None:
                 logger.debug(f"{var}: {value}")
             else:
                 logger.error(".env file does not exist.")
-
-def main() -> None:
-    logger.debug("Main function running...")
-    check_variables()
-
-main()
+    logger.debug("Checking vars ended.")
