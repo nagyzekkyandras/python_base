@@ -12,3 +12,4 @@ def get_current_datetime_formatted() -> str:
     # Format the datetime
     formatted_datetime = current_datetime.strftime('%Y-%m-%d %H:%M:%S')
     return formatted_datetime
+
